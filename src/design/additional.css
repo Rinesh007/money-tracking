@@ -1,0 +1,31 @@
+.container_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffaf0;
+  border-radius: 10px;
+  width: 700px;
+}
+.income {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  gap: 10px;
+}
+.expense {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  gap: 10px;
+}
+.income_expense {
+  display: flex;
+  gap: 60px;
+}
+.income_expense input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}

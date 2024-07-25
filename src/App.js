@@ -1,11 +1,25 @@
 import logo from "./logo.svg";
-import "./App.css";
-import wallet from "./pngegg.png";
+import "./design/App.css";
+import wallet from "./assets/pngegg.png";
 import React, { useState } from "react";
+import Add_payment from "./design/add_payment";
 
 function App() {
   const [selectedValue, setSelectedValue] = useState("INR");
 
+  const [open, setOpen] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const handleOpen = () => {
+    setCount((prevCount) => prevCount + 1);
+    if (count % 2 == 0) {
+      setOpen(true);
+    } else {
+      console.log("Else");
+      setOpen(false);
+    }
+  };
+  console.log(count);
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -42,8 +56,11 @@ function App() {
         <h1>Expense Tracker</h1>
         <div className="edit_payment">
           <h2>Your Balance: {selectedValue} XYZ</h2>
-          <button className="add_button">Add</button>
+          <button className="add_button" onClick={handleOpen}>
+            +
+          </button>
         </div>
+        <Add_payment open={open} />
       </div>
     </div>
   );
