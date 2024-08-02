@@ -5,6 +5,7 @@
   background-color: #fffaf0;
   border-radius: 10px;
   width: 700px;
+  transition: all 0.3s ease;
 }
 .income {
   align-items: center;
@@ -27,5 +28,12 @@
 .income_expense input {
   width: 100%;
   padding: 10px;
+  border-radius: 5px;
+}
+.add_payment button {
+  background-color: #399776;
+  color: white;
+  border: none;
+  padding: 10px 25px;
   border-radius: 5px;
 }

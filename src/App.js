@@ -1,25 +1,28 @@
 import logo from "./logo.svg";
 import "./design/App.css";
 import wallet from "./assets/pngegg.png";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Add_payment from "./design/add_payment";
+import { totalValue } from "./design/add_payment";
 
 function App() {
   const [selectedValue, setSelectedValue] = useState("INR");
-
+  const [sharedValue, setSharedValue] = useState(0.0);
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(0);
+  const handleFunction = () => {
+    setSharedValue(totalValue);
+  };
 
   const handleOpen = () => {
     setCount((prevCount) => prevCount + 1);
     if (count % 2 == 0) {
       setOpen(true);
     } else {
-      console.log("Else");
       setOpen(false);
     }
   };
-  console.log(count);
+
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -55,12 +58,19 @@ function App() {
         <img className="wallet" src={wallet} />
         <h1>Expense Tracker</h1>
         <div className="edit_payment">
-          <h2>Your Balance: {selectedValue} XYZ</h2>
-          <button className="add_button" onClick={handleOpen}>
-            +
+          <h2>
+            Your Balance: {selectedValue} {sharedValue}
+          </h2>
+          <button
+            className={`toggle-button ${open ? "active" : ""}`}
+            onClick={handleOpen}
+          >
+            <span className="plus">+</span>
           </button>
         </div>
-        <Add_payment open={open} />
+        <div className="add_payment">
+          <Add_payment open={open} onAddClick={handleFunction} />
+        </div>
       </div>
     </div>
   );

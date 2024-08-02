@@ -3,15 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .edit_payment {
   display: flex;
   flex: row;
   gap: 300px;
+  transition: all 0.3s ease;
 }
-button {
-  background-color: #399776;
+/*button {
   border: none;
   color: white;
   padding: 15px 30px;
@@ -26,7 +27,9 @@ button {
 button:hover {
   background-color: #4aa07d;
   color: black;
-}
+  transition: 0.8s;
+}*/
+
 .wallet {
   height: 150px;
 }
@@ -44,4 +47,39 @@ button:hover {
 }
 .add_button {
   font-size: 28px;
+  transition: all 0.3s ease;
+}
+.toggle-button {
+  background-color: #399776;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.1s ease;
+}
+
+.toggle-button:hover {
+  color: black;
+}
+
+.toggle-button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: white;
+  transition-timing-function: linear;
+  transition: opacity 0.6s linear, transform 0.2s linear;
+}
+
+.toggle-button.active .plus {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.add_payment {
+  display: inline-block;
+  transition: all 0.3s ease;
 }
